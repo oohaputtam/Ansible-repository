@@ -1,0 +1,46 @@
+---
+ - name: Playbook to install jenkins
+   hosts: all
+   become: true
+   tasks:
+   - name: update packages
+     yum:
+       name: '*'
+       state: latest
+
+   - name: install wget
+     yum:
+       name: wget
+       state: installed
+         
+   - name: Download jenkins
+     get_url: 
+       url: https://pkg.jenkins.io/redhat-stable/jenkins.repo
+       dest: /etc/yum.repos.d/jenkins.repo
+   
+   - name: Adding jenkins repository key
+     rpm_key:
+       key: https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+       state: present
+         
+   - name: Again update packages
+     yum:
+       name: '*'
+       state: latest
+
+   - name: install java
+     yum:
+       name: java
+       state: installed
+    
+   - name: install jenkins
+     yum:
+       name: jenkins
+       state: installed
+
+   - name: start jenkins service
+     service:
+       name: jenkins
+       state: started
+
+   
