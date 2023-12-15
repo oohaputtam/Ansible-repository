@@ -1,0 +1,14 @@
+---
+ - name: Playbook to create user using method1 variable
+   hosts: all
+   become: true
+   vars:
+      user: nani
+   tasks:
+   - name: create user {{ user }}
+     user:
+       name: "{{ user }}"
+       state: present
+...
+
+

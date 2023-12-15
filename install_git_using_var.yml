@@ -1,0 +1,13 @@
+---
+ - name: Playbook to install git using vars
+   hosts: all
+   become: true
+   vars:
+      package: git
+   tasks:
+   - name: installing package {{ package }}
+     yum:
+      name: "{{ package }}"
+      state: installed
+...
+   

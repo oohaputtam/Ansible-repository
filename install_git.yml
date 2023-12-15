@@ -1,0 +1,9 @@
+---
+ - name: Playbook to install git
+   hosts: all
+   tasks:
+   - name: git installation
+     yum:
+       pkg: git
+       state: latest
+...

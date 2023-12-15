@@ -1,0 +1,31 @@
+---
+ - name: Creating Playbook using when condition
+   hosts: all
+   become: true
+   tasks:
+   - name: Install package
+     yum:
+       name: httpd
+       state: present
+     when: ansible_os_family == "RedHat"
+     notify: start apache
+
+   - name: Install apache2
+     apt:
+       name: apache2
+       state: present
+     when: ansible_os_family == "Debian"
+     notify: start apache2 webserver
+
+   handlers:
+   - name: start apache
+     service:
+        name: httpd
+        state: started
+     when: ansible_os_family == "RedHat"
+
+   - name: start apache2 webserver
+     service:
+        name: apache2
+        state: started
+     when: ansible_os_family == "Debian"

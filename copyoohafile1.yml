@@ -1,0 +1,14 @@
+---
+ - name: My playbook
+   hosts: all
+   become: true
+   tasks:
+   - name: Copy oohafile1 to dirb
+     copy:
+       src: /home/ansadmin/oohafile1
+       dest: /home/ansadmin/dira/dirb
+       mode: 0600
+       owner: Aakash
+...
+
+

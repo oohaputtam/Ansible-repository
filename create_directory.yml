@@ -1,0 +1,9 @@
+---
+ - name: Playbook to create directory
+   hosts: all
+   tasks:
+   - name: creating directory
+     file:
+       path: /home/ansadmin/dira/dirb
+       state: directory
+...

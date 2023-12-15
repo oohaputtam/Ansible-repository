@@ -1,0 +1,6 @@
+---
+# task section of playbook
+- name: create user "{{ user }}"
+  user:
+    name: "{{ user }}"
+    state: present

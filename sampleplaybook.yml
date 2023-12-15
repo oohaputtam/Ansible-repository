@@ -1,0 +1,12 @@
+---
+ - name: My sample playbook
+   hosts: all
+   become: true
+   vars:
+       user: Chotu
+   tasks: 
+   - name: creating user {{ user }}
+     user:
+       name: "{{ user }}"
+       state: present
+...

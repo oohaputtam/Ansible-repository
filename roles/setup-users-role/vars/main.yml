@@ -1,0 +1,4 @@
+---
+# vars section playbook
+vars:
+  user: Ricky

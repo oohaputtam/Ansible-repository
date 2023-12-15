@@ -1,0 +1,8 @@
+---
+- name: This the main playbook
+  hosts: all
+  become: true
+  roles:
+    - setup-apache-role
+    - setup-users-role
+

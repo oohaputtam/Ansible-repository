@@ -1,0 +1,12 @@
+---
+ - name: Playbook to create users using loop
+   hosts: all
+   become: true
+   vars_files:
+   - loop_file.yml
+   tasks:
+   - name: creating list of users
+     user:
+       name: "{{ item }}"
+       state: present
+...
