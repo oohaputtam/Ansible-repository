@@ -16,7 +16,7 @@
 
 - name: copy index.html file
   copy:
-    src: /home/ansadmin/index.html
+    src: /home/ansadmin/ansiblelocalrepo/index.html
     dest: /var/www/index.html
     mode: 0666
 

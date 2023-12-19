@@ -1,4 +1,4 @@
 ---
 # vars section playbook
-vars:
-  user: Ricky
+
+ user: Ricky
